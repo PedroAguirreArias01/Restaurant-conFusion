@@ -30,11 +30,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatSliderModule} from '@angular/material/slider';
+
 // Importing the Reactive Forms Module
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
+
+// Importa httpClient for request 
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -46,13 +52,14 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppRoutingModule,
+    HttpClientModule,
     // material moduls
     MatToolbarModule,
     MatListModule,
@@ -66,13 +73,16 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    MatSliderModule,
     ReactiveFormsModule,
     FormsModule,
+    
   ],
   providers: [
     DishService,
     PromotionService,
     LeaderService,
+    {provide: 'BaseURL', useValue: baseURL},
   ],
   entryComponents: [
     LoginComponent
