@@ -31,8 +31,10 @@ export class DishService {
   //   return of(DISHES.map(dish => dish.id ));
   // }
 
-  constructor(private http: HttpClient,
-    private processHTTPMsgService: ProcessHTTPMsgService) { }
+  constructor(
+    private http: HttpClient,
+    private processHTTPMsgService: ProcessHTTPMsgService
+    ) { }
 
   getDishes(): Observable<Dish[]> {
     return this.http.get<Dish[]>(baseURL + 'dishes')
